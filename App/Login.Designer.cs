@@ -41,6 +41,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -75,7 +76,7 @@
             this.label1.Location = new System.Drawing.Point(174, 181);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 45);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 1;
             this.label1.Text = "LOG IN";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -108,7 +109,7 @@
             this.button1.Location = new System.Drawing.Point(46, 466);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(398, 44);
-            this.button1.TabIndex = 3;
+            this.button1.TabIndex = 4;
             this.button1.Text = "LOG IN";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -120,8 +121,11 @@
             this.txtEmail.Location = new System.Drawing.Point(99, 282);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
+            this.txtEmail.PlaceholderText = "Enter your email:";
             this.txtEmail.Size = new System.Drawing.Size(345, 29);
-            this.txtEmail.TabIndex = 1;
+            this.txtEmail.TabIndex = 2;
+            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // pictureBox3
             // 
@@ -150,8 +154,11 @@
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
+            this.txtPassword.PlaceholderText = "Enter your password:";
             this.txtPassword.Size = new System.Drawing.Size(345, 26);
-            this.txtPassword.TabIndex = 2;
+            this.txtPassword.TabIndex = 3;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // button2
             // 
@@ -163,7 +170,7 @@
             this.button2.Location = new System.Drawing.Point(116, 532);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(120, 44);
-            this.button2.TabIndex = 4;
+            this.button2.TabIndex = 5;
             this.button2.Text = "REGISTER";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -177,10 +184,17 @@
             this.button3.Location = new System.Drawing.Point(242, 532);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(120, 44);
-            this.button3.TabIndex = 5;
+            this.button3.TabIndex = 6;
             this.button3.Text = "EXIT";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(443, 181);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(1, 27);
+            this.textBox1.TabIndex = 1;
             // 
             // Login
             // 
@@ -188,6 +202,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(490, 603);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.panel3);
@@ -227,5 +242,6 @@
         private TextBox txtPassword;
         private Button button2;
         private Button button3;
+        private TextBox textBox1;
     }
 }
