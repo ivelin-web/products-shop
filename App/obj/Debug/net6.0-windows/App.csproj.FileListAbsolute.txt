@@ -33,3 +33,12 @@ E:\Products-Shop\App\bin\Debug\net6.0-windows\runtimes\linux\native\libmongocryp
 E:\Products-Shop\App\bin\Debug\net6.0-windows\runtimes\osx\native\libmongocrypt.dylib
 E:\Products-Shop\App\bin\Debug\net6.0-windows\runtimes\win\native\mongocrypt.dll
 E:\Products-Shop\App\obj\Debug\net6.0-windows\App.csproj.CopyComplete
+E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.dll
+E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.FileExtensions.dll
+E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.Json.dll
+E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.Configuration.UserSecrets.dll
+E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Abstractions.dll
+E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
+E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
+E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll

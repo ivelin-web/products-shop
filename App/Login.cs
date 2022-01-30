@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Configuration;
+
 namespace App
 {
     public partial class Login : Form
