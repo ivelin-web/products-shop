@@ -42,3 +42,4 @@ E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders
 E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.FileProviders.Physical.dll
 E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.FileSystemGlobbing.dll
 E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dll
+E:\Products-Shop\App\obj\Debug\net6.0-windows\App.Register.resources

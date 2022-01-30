@@ -1,5 +1,3 @@
-using Microsoft.Extensions.Configuration;
-
 namespace App
 {
     public partial class Login : Form
@@ -19,7 +17,7 @@ namespace App
             txtPassword.PasswordChar = '\0';
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -60,6 +58,12 @@ namespace App
                 txtPassword.ForeColor = Color.FromArgb(85, 172, 238);
                 txtPassword.PasswordChar = '\0';
             }
+        }
+
+        private void registerBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Register().Show();
         }
     }
 }
