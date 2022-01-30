@@ -1,4 +1,4 @@
-﻿namespace App.Utils.PasswordHashes
+﻿namespace App.Utils.PasswordHashes.Interfaces
 {
     public interface IPasswordHash
     {

@@ -1,5 +1,6 @@
 ﻿namespace App.Utils.PasswordHashes
 {
+    using App.Utils.PasswordHashes.Interfaces;
     using System.Security.Cryptography;
     using System.Text;
 
