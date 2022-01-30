@@ -42,6 +42,7 @@
             this.registerBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtWrong = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -112,6 +113,7 @@
             this.loginBtn.TabIndex = 4;
             this.loginBtn.Text = "LOG IN";
             this.loginBtn.UseVisualStyleBackColor = false;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // txtEmail
             // 
@@ -197,12 +199,24 @@
             this.textBox1.Size = new System.Drawing.Size(1, 27);
             this.textBox1.TabIndex = 1;
             // 
+            // txtWrong
+            // 
+            this.txtWrong.AutoSize = true;
+            this.txtWrong.ForeColor = System.Drawing.Color.Firebrick;
+            this.txtWrong.Location = new System.Drawing.Point(46, 431);
+            this.txtWrong.Name = "txtWrong";
+            this.txtWrong.Size = new System.Drawing.Size(184, 20);
+            this.txtWrong.TabIndex = 7;
+            this.txtWrong.Text = "Wrong email or password!";
+            this.txtWrong.Visible = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(490, 603);
+            this.Controls.Add(this.txtWrong);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtEmail);
@@ -244,5 +258,6 @@
         private Button registerBtn;
         private Button exitBtn;
         private TextBox textBox1;
+        private Label txtWrong;
     }
 }
