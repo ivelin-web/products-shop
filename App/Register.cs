@@ -1,17 +1,26 @@
 ﻿namespace App
 {
     using App.Configs.Databases.Interfaces;
+    using App.Models.Users;
+    using App.Utils.PasswordHashes.Interfaces;
+    using MongoDB.Driver;
     using System.Net.Mail;
 
     public partial class Register : Form
     {
-        private readonly IDatabase mongo;
+        private const string userCollectionName = "users";
 
-        public Register(IDatabase mongo)
+        private readonly IDatabase mongo;
+        private readonly IPasswordHash passwordHash;
+        private readonly IMongoCollection<User> userCollection;
+
+        public Register(IDatabase mongo, IPasswordHash passwordHash)
         {
             InitializeComponent();
 
-            this.mongo = mongo; 
+            this.mongo = mongo;
+            this.passwordHash = passwordHash;
+            this.userCollection = this.mongo.Db.GetCollection<User>(userCollectionName);
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -22,19 +31,14 @@
         private void loginBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Login(this.mongo).Show();
+            new Login(this.mongo, this.passwordHash).Show();
         }
 
         private void Register_Load(object sender, EventArgs e)
         {
             txtEmail.Text = "Enter email:";
-            txtEmail.ForeColor = Color.FromArgb(85, 172, 238);
-
             txtUsername.Text = "Enter username:";
-            txtUsername.ForeColor = Color.FromArgb(85, 172, 238);
-
             txtPassword.Text = "Enter password:";
-            txtPassword.ForeColor = Color.FromArgb(85, 172, 238);
             txtPassword.PasswordChar = '\0';
         }
 
@@ -43,7 +47,6 @@
             if (txtEmail.Text == "Enter email:")
             {
                 txtEmail.Text = "";
-                txtEmail.ForeColor = Color.FromArgb(85, 172, 238);
             }
         }
 
@@ -52,7 +55,6 @@
             if (txtEmail.Text == "")
             {
                 txtEmail.Text = "Enter email:";
-                txtEmail.ForeColor = Color.FromArgb(85, 172, 238);
             }
         }
 
@@ -61,7 +63,6 @@
             if (txtUsername.Text == "Enter username:")
             {
                 txtUsername.Text = "";
-                txtUsername.ForeColor = Color.FromArgb(85, 172, 238);
             }
         }
 
@@ -70,7 +71,6 @@
             if (txtUsername.Text == "")
             {
                 txtUsername.Text = "Enter username:";
-                txtUsername.ForeColor = Color.FromArgb(85, 172, 238);
             }
         }
 
@@ -79,7 +79,6 @@
             if (txtPassword.Text == "Enter password:")
             {
                 txtPassword.Text = "";
-                txtPassword.ForeColor = Color.FromArgb(85, 172, 238);
                 txtPassword.PasswordChar = '*';
             }
         }
@@ -89,22 +88,48 @@
             if (txtPassword.Text == "")
             {
                 txtPassword.Text = "Enter password:";
-                txtPassword.ForeColor = Color.FromArgb(85, 172, 238);
                 txtPassword.PasswordChar = '\0';
             }
         }
 
         private void registerBtn_Click(object sender, EventArgs e)
         {
-            CheckFields();
+            // First check whether all fields are valid
+            bool isValid = CheckFields();
+
+            if (!isValid)
+            {
+                return;
+            }
+
+            // Save user to mongodb
+            SaveUserToMongo();
         }
 
-        private void CheckFields()
+        private async void SaveUserToMongo()
         {
+            // Hash password
+            string hashedPassword = this.passwordHash.Hash(txtPassword.Text);
+
+            // Make new user and save
+            User user = new User(txtEmail.Text, txtUsername.Text, hashedPassword);
+            await this.userCollection.InsertOneAsync(user);
+
+            // Show message, close register form and open login form
+            MessageBox.Show("The user has been added successfully.");
+            this.Hide();
+            new Login(this.mongo, this.passwordHash).Show();
+        }
+
+        private bool CheckFields()
+        {
+            bool isValid = true;
+
             // Check email
             if (!MailAddress.TryCreate(txtEmail.Text, out MailAddress mailAddress))
             {
                 txtEmailWrong.Visible = true;
+                isValid = false;
             }
             else
             {
@@ -115,6 +140,7 @@
             if (txtUsername.Text.Trim().Length < 3 || txtUsername.Text == "Enter username:")
             {
                 txtUsernameWrong.Visible = true;
+                isValid = false;
             }
             else
             {
@@ -125,11 +151,14 @@
             if (txtPassword.Text.Length < 4 || txtPassword.Text == "Enter password:")
             {
                 txtPasswordWrong.Visible = true;
+                isValid = false;
             }
             else
             {
                 txtPasswordWrong.Visible = false;
             }
+
+            return isValid;
         }
     }
 }

@@ -1,25 +1,25 @@
 namespace App
 {
     using App.Configs.Databases.Interfaces;
+    using App.Utils.PasswordHashes.Interfaces;
 
     public partial class Login : Form
     {
-        private IDatabase mongo;
+        private readonly IDatabase mongo;
+        private readonly IPasswordHash passwordHash;
 
-        public Login(IDatabase mongo)
+        public Login(IDatabase mongo, IPasswordHash passwordHash)
         {
             InitializeComponent();
 
             this.mongo = mongo;
+            this.passwordHash = passwordHash;   
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
             txtEmail.Text = "Enter your email:";
-            txtEmail.ForeColor = Color.FromArgb(85, 172, 238);
-
             txtPassword.Text = "Enter your password:";
-            txtPassword.ForeColor = Color.FromArgb(85, 172, 238);
             txtPassword.PasswordChar = '\0';
         }
 
@@ -33,7 +33,6 @@ namespace App
             if (txtEmail.Text == "Enter your email:")
             {
                 txtEmail.Text = "";
-                txtEmail.ForeColor = Color.FromArgb(85, 172, 238);
             }
         }
 
@@ -42,7 +41,6 @@ namespace App
             if (txtEmail.Text == "")
             {
                 txtEmail.Text = "Enter your email:";
-                txtEmail.ForeColor = Color.FromArgb(85, 172, 238);
             }
         }
 
@@ -51,7 +49,6 @@ namespace App
             if (txtPassword.Text == "Enter your password:")
             {
                 txtPassword.Text = "";
-                txtPassword.ForeColor = Color.FromArgb(85, 172, 238);
                 txtPassword.PasswordChar = '*';
             }
         }
@@ -61,7 +58,6 @@ namespace App
             if (txtPassword.Text == "")
             {
                 txtPassword.Text = "Enter your password:";
-                txtPassword.ForeColor = Color.FromArgb(85, 172, 238);
                 txtPassword.PasswordChar = '\0';
             }
         }
@@ -69,7 +65,7 @@ namespace App
         private void registerBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Register(this.mongo).Show();
+            new Register(this.mongo, this.passwordHash).Show();
         }
     }
 }
