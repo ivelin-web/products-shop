@@ -1,10 +1,16 @@
 namespace App
 {
+    using App.Configs.Databases.Interfaces;
+
     public partial class Login : Form
     {
-        public Login()
+        private IDatabase mongo;
+
+        public Login(IDatabase mongo)
         {
             InitializeComponent();
+
+            this.mongo = mongo;
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -63,7 +69,7 @@ namespace App
         private void registerBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Register().Show();
+            new Register(this.mongo).Show();
         }
     }
 }

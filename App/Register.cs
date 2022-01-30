@@ -1,10 +1,16 @@
 ﻿namespace App
 {
+    using App.Configs.Databases.Interfaces;
+
     public partial class Register : Form
     {
-        public Register()
+        private readonly IDatabase mongo;
+
+        public Register(IDatabase mongo)
         {
             InitializeComponent();
+
+            this.mongo = mongo; 
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -15,7 +21,7 @@
         private void loginBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new Login().Show();
+            new Login(this.mongo).Show();
         }
 
         private void Register_Load(object sender, EventArgs e)

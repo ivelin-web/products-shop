@@ -1,7 +1,6 @@
 ﻿namespace App.Configs.Databases
 {
     using App.Configs.Databases.Interfaces;
-    using App.Configs.Interfaces;
     using Microsoft.Extensions.Configuration;
     using MongoDB.Driver;
 
