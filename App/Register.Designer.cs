@@ -45,6 +45,9 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtEmailWrong = new System.Windows.Forms.Label();
+            this.txtUsernameWrong = new System.Windows.Forms.Label();
+            this.txtPasswordWrong = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -151,6 +154,7 @@
             this.registerBtn.TabIndex = 5;
             this.registerBtn.Text = "REGISTER";
             this.registerBtn.UseVisualStyleBackColor = false;
+            this.registerBtn.Click += new System.EventHandler(this.registerBtn_Click);
             // 
             // pictureBox3
             // 
@@ -233,12 +237,48 @@
             this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
             this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
+            // txtEmailWrong
+            // 
+            this.txtEmailWrong.AutoSize = true;
+            this.txtEmailWrong.ForeColor = System.Drawing.Color.Firebrick;
+            this.txtEmailWrong.Location = new System.Drawing.Point(46, 307);
+            this.txtEmailWrong.Name = "txtEmailWrong";
+            this.txtEmailWrong.Size = new System.Drawing.Size(124, 20);
+            this.txtEmailWrong.TabIndex = 17;
+            this.txtEmailWrong.Text = "Enter valid email!";
+            this.txtEmailWrong.Visible = false;
+            // 
+            // txtUsernameWrong
+            // 
+            this.txtUsernameWrong.AutoSize = true;
+            this.txtUsernameWrong.ForeColor = System.Drawing.Color.Firebrick;
+            this.txtUsernameWrong.Location = new System.Drawing.Point(46, 402);
+            this.txtUsernameWrong.Name = "txtUsernameWrong";
+            this.txtUsernameWrong.Size = new System.Drawing.Size(151, 20);
+            this.txtUsernameWrong.TabIndex = 17;
+            this.txtUsernameWrong.Text = "Enter valid username!";
+            this.txtUsernameWrong.Visible = false;
+            // 
+            // txtPasswordWrong
+            // 
+            this.txtPasswordWrong.AutoSize = true;
+            this.txtPasswordWrong.ForeColor = System.Drawing.Color.Firebrick;
+            this.txtPasswordWrong.Location = new System.Drawing.Point(46, 497);
+            this.txtPasswordWrong.Name = "txtPasswordWrong";
+            this.txtPasswordWrong.Size = new System.Drawing.Size(245, 20);
+            this.txtPasswordWrong.TabIndex = 17;
+            this.txtPasswordWrong.Text = "Enter password with 4 symbols min!";
+            this.txtPasswordWrong.Visible = false;
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(490, 700);
+            this.Controls.Add(this.txtPasswordWrong);
+            this.Controls.Add(this.txtUsernameWrong);
+            this.Controls.Add(this.txtEmailWrong);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
@@ -287,5 +327,8 @@
         private PictureBox pictureBox4;
         private Panel panel4;
         private TextBox txtUsername;
+        private Label txtEmailWrong;
+        private Label txtUsernameWrong;
+        private Label txtPasswordWrong;
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace App
 {
     using App.Configs.Databases.Interfaces;
+    using System.Net.Mail;
 
     public partial class Register : Form
     {
@@ -90,6 +91,44 @@
                 txtPassword.Text = "Enter password:";
                 txtPassword.ForeColor = Color.FromArgb(85, 172, 238);
                 txtPassword.PasswordChar = '\0';
+            }
+        }
+
+        private void registerBtn_Click(object sender, EventArgs e)
+        {
+            CheckFields();
+        }
+
+        private void CheckFields()
+        {
+            // Check email
+            if (!MailAddress.TryCreate(txtEmail.Text, out MailAddress mailAddress))
+            {
+                txtEmailWrong.Visible = true;
+            }
+            else
+            {
+                txtEmailWrong.Visible = false;
+            }
+
+            // Check username
+            if (txtUsername.Text.Trim().Length < 3 || txtUsername.Text == "Enter username:")
+            {
+                txtUsernameWrong.Visible = true;
+            }
+            else
+            {
+                txtUsernameWrong.Visible = false;
+            }
+
+            // Check password
+            if (txtPassword.Text.Length < 4 || txtPassword.Text == "Enter password:")
+            {
+                txtPasswordWrong.Visible = true;
+            }
+            else
+            {
+                txtPasswordWrong.Visible = false;
             }
         }
     }
