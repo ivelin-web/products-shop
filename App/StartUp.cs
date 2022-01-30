@@ -1,6 +1,9 @@
 namespace App
 {
-    internal static class Program
+    using App.Core;
+    using App.Core.Interfaces;
+
+    internal static class StartUp
     {
         /// <summary>
         ///  The main entry point for the application.
@@ -8,8 +11,8 @@ namespace App
         [STAThread]
         static void Main()
         {
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Login());
+            IEngine engine = new Engine();
+            engine.Run();
         }
     }
 }
