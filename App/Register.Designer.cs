@@ -85,8 +85,6 @@
             this.txtPassword.PlaceholderText = "Enter password:";
             this.txtPassword.Size = new System.Drawing.Size(345, 26);
             this.txtPassword.TabIndex = 4;
-            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
-            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // txtEmail
             // 
@@ -99,8 +97,6 @@
             this.txtEmail.PlaceholderText = "Enter email:";
             this.txtEmail.Size = new System.Drawing.Size(345, 29);
             this.txtEmail.TabIndex = 2;
-            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
-            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // panel3
             // 
@@ -234,8 +230,6 @@
             this.txtUsername.PlaceholderText = "Enter username:";
             this.txtUsername.Size = new System.Drawing.Size(345, 29);
             this.txtUsername.TabIndex = 3;
-            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
-            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // txtEmailWrong
             // 
@@ -298,7 +292,6 @@
             this.Name = "Register";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
-            this.Load += new System.EventHandler(this.Register_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

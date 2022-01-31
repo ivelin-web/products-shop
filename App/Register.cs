@@ -34,64 +34,6 @@
             new Login(this.mongo, this.passwordHash).Show();
         }
 
-        private void Register_Load(object sender, EventArgs e)
-        {
-            txtEmail.Text = "Enter email:";
-            txtUsername.Text = "Enter username:";
-            txtPassword.Text = "Enter password:";
-            txtPassword.PasswordChar = '\0';
-        }
-
-        private void txtEmail_Enter(object sender, EventArgs e)
-        {
-            if (txtEmail.Text == "Enter email:")
-            {
-                txtEmail.Text = "";
-            }
-        }
-
-        private void txtEmail_Leave(object sender, EventArgs e)
-        {
-            if (txtEmail.Text == "")
-            {
-                txtEmail.Text = "Enter email:";
-            }
-        }
-
-        private void txtUsername_Enter(object sender, EventArgs e)
-        {
-            if (txtUsername.Text == "Enter username:")
-            {
-                txtUsername.Text = "";
-            }
-        }
-
-        private void txtUsername_Leave(object sender, EventArgs e)
-        {
-            if (txtUsername.Text == "")
-            {
-                txtUsername.Text = "Enter username:";
-            }
-        }
-
-        private void txtPassword_Enter(object sender, EventArgs e)
-        {
-            if (txtPassword.Text == "Enter password:")
-            {
-                txtPassword.Text = "";
-                txtPassword.PasswordChar = '*';
-            }
-        }
-
-        private void txtPassword_Leave(object sender, EventArgs e)
-        {
-            if (txtPassword.Text == "")
-            {
-                txtPassword.Text = "Enter password:";
-                txtPassword.PasswordChar = '\0';
-            }
-        }
-
         private void registerBtn_Click(object sender, EventArgs e)
         {
             // First check whether all fields are valid
@@ -149,7 +91,7 @@
             }
 
             // Check username
-            if (txtUsername.Text.Trim().Length < 3 || txtUsername.Text == "Enter username:")
+            if (txtUsername.Text.Trim().Length < 3)
             {
                 txtUsernameWrong.Visible = true;
                 isValid = false;
@@ -160,7 +102,7 @@
             }
 
             // Check password
-            if (txtPassword.Text.Length < 4 || txtPassword.Text == "Enter password:")
+            if (txtPassword.Text.Length < 4)
             {
                 txtPasswordWrong.Visible = true;
                 isValid = false;

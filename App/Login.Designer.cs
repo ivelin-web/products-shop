@@ -126,8 +126,6 @@
             this.txtEmail.PlaceholderText = "Enter your email:";
             this.txtEmail.Size = new System.Drawing.Size(345, 29);
             this.txtEmail.TabIndex = 2;
-            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
-            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // pictureBox3
             // 
@@ -159,8 +157,6 @@
             this.txtPassword.PlaceholderText = "Enter your password:";
             this.txtPassword.Size = new System.Drawing.Size(345, 26);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
-            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // registerBtn
             // 
@@ -233,7 +229,6 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
