@@ -4,8 +4,6 @@
 
     public interface IDatabase
     {
-        public MongoClient Client { get; }
-
         public IMongoDatabase Db { get; }
     }
 }

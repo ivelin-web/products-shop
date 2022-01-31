@@ -45,3 +45,4 @@ E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.Primitives.dl
 E:\Products-Shop\App\obj\Debug\net6.0-windows\App.Register.resources
 E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.dll
 E:\Products-Shop\App\bin\Debug\net6.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Products-Shop\App\obj\Debug\net6.0-windows\App.Main.resources

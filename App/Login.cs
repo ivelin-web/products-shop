@@ -85,14 +85,16 @@ namespace App
                 return;
             }
 
-            MessageBox.Show("Welcome!");
+            // Close login and open main form
+            this.Hide();
+            new Main(this.mongo, this.passwordHash).Show();
         }
 
         private bool IsValidUser()
         {
             // First try to find user by given email
             var filter = Builders<User>.Filter.Eq("email", txtEmail.Text);
-            var user = this.userCollection.Find(filter).FirstOrDefault();
+            User user = this.userCollection.Find(filter).FirstOrDefault();
 
             // Wrong email
             if (user == null)
@@ -105,6 +107,9 @@ namespace App
             {
                 return false;
             }
+
+            // Save user to app
+            Properties.Settings.Default.username = user.Username;
 
             return true;
         }

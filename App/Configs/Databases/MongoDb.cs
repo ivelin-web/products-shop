@@ -8,16 +8,15 @@
     {
         private readonly string dbName = "products_shop_db";
         private readonly Configs.Interfaces.IConfiguration configuration;
+        private readonly IMongoClient client;
 
         public MongoDb(Configs.Interfaces.IConfiguration configuration)
         {
             this.configuration = configuration;
 
-            this.Client = new MongoClient(this.configuration.Config.GetConnectionString("MONGO_URL"));
-            this.Db = this.Client.GetDatabase(dbName);
+            this.client = new MongoClient(this.configuration.Config.GetConnectionString("MONGO_URL"));
+            this.Db = this.client.GetDatabase(dbName);
         }
-
-        public MongoClient Client { get; private set; }
 
         public IMongoDatabase Db { get; private set; }
     }

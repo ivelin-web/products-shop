@@ -111,8 +111,20 @@
             // Hash password
             string hashedPassword = this.passwordHash.Hash(txtPassword.Text);
 
-            // Make new user and save
+            // Make new user
             User user = new User(txtEmail.Text, txtUsername.Text, hashedPassword);
+
+            // Check whether email is already used
+            var filter = Builders<User>.Filter.Eq("email", txtEmail.Text);
+            User userWithUsedEmail = this.userCollection.Find(filter).FirstOrDefault();
+
+            if (userWithUsedEmail != null)
+            {
+                MessageBox.Show("The email is already used. Please use another email!");
+                return;
+            }
+
+            // Save user to mongo
             await this.userCollection.InsertOneAsync(user);
 
             // Show message, close register form and open login form
