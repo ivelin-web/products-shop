@@ -1,6 +1,7 @@
 ﻿namespace App
 {
     using App.Configs.Databases.Interfaces;
+    using App.Models.Interfaces;
     using App.Models.Users;
     using App.Utils.PasswordHashes.Interfaces;
     using MongoDB.Driver;
@@ -54,11 +55,11 @@
             string hashedPassword = this.passwordHash.Hash(txtPassword.Text);
 
             // Make new user
-            User user = new User(txtEmail.Text, txtUsername.Text, hashedPassword);
+            IUser user = new User(this.txtEmail.Text, this.txtUsername.Text, hashedPassword);
 
             // Check whether email is already used
-            var filter = Builders<User>.Filter.Eq("email", txtEmail.Text);
-            User userWithUsedEmail = this.userCollection.Find(filter).FirstOrDefault();
+            var filter = Builders<User>.Filter.Eq("email", this.txtEmail.Text);
+            IUser userWithUsedEmail = this.userCollection.Find(filter).FirstOrDefault();
 
             if (userWithUsedEmail != null)
             {
@@ -67,7 +68,7 @@
             }
 
             // Save user to mongo
-            await this.userCollection.InsertOneAsync(user);
+            await this.userCollection.InsertOneAsync((User)user);
 
             // Show message, close register form and open login form
             MessageBox.Show("The user has been added successfully.");
@@ -80,36 +81,36 @@
             bool isValid = true;
 
             // Check email
-            if (!MailAddress.TryCreate(txtEmail.Text, out MailAddress mailAddress))
+            if (!MailAddress.TryCreate(this.txtEmail.Text, out MailAddress mailAddress))
             {
-                txtEmailWrong.Visible = true;
+                this.txtEmailWrong.Visible = true;
                 isValid = false;
             }
             else
             {
-                txtEmailWrong.Visible = false;
+                this.txtEmailWrong.Visible = false;
             }
 
             // Check username
-            if (txtUsername.Text.Trim().Length < 3)
+            if (this.txtUsername.Text.Trim().Length < 3)
             {
-                txtUsernameWrong.Visible = true;
+                this.txtUsernameWrong.Visible = true;
                 isValid = false;
             }
             else
             {
-                txtUsernameWrong.Visible = false;
+                this.txtUsernameWrong.Visible = false;
             }
 
             // Check password
-            if (txtPassword.Text.Length < 4)
+            if (this.txtPassword.Text.Length < 4)
             {
-                txtPasswordWrong.Visible = true;
+                this.txtPasswordWrong.Visible = true;
                 isValid = false;
             }
             else
             {
-                txtPasswordWrong.Visible = false;
+                this.txtPasswordWrong.Visible = false;
             }
 
             return isValid;

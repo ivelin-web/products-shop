@@ -2,6 +2,7 @@
 {
     using App.Configs.Databases.Interfaces;
     using App.Models.Product;
+    using App.Models.Product.Interface;
     using App.Utils.PasswordHashes.Interfaces;
     using MongoDB.Driver;
 
@@ -32,7 +33,7 @@
 
         private void LoadProductItems()
         {
-            List<Product> products = this.productCollection.AsQueryable().ToList<Product>();
+            List<IProduct> products = this.productCollection.AsQueryable().ToList<IProduct>();
             List<ProductItem> productItems = new List<ProductItem>();
 
             foreach (var product in products)
@@ -93,7 +94,7 @@
             }
 
             // Validate price field
-            if (this.txtPrice.Text.Trim().Length == 0)
+            if (this.txtPrice.Text.Trim().Length == 0 || this.txtPrice.Text[this.txtPrice.Text.Length - 1] == ',')
             {
                 isValid = false;
                 this.txtPriceWrong.Visible = true;
@@ -122,7 +123,7 @@
 
         private Product SaveProduct()
         {
-            Product product = new Product(Properties.Settings.Default.username, txtName.Text, Double.Parse(txtPrice.Text));
+            Product product = new Product(Properties.Settings.Default.username, this.txtName.Text, Double.Parse(this.txtPrice.Text));
             this.productCollection.InsertOne(product);
 
             return product;

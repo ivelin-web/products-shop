@@ -1,6 +1,7 @@
 namespace App
 {
     using App.Configs.Databases.Interfaces;
+    using App.Models.Interfaces;
     using App.Models.Users;
     using App.Utils.PasswordHashes.Interfaces;
     using MongoDB.Driver;
@@ -40,7 +41,7 @@ namespace App
 
             if (!isValidUser)
             {
-                txtWrong.Visible = true;
+                this.txtWrong.Visible = true;
                 return;
             }
 
@@ -51,9 +52,9 @@ namespace App
 
         private bool IsValidUser()
         {
-            // First try to find user by given email
-            var filter = Builders<User>.Filter.Eq("email", txtEmail.Text);
-            User user = this.userCollection.Find(filter).FirstOrDefault();
+            // First try to find user by the given email
+            var filter = Builders<User>.Filter.Eq("email", this.txtEmail.Text);
+            IUser user = this.userCollection.Find(filter).FirstOrDefault();
 
             // Wrong email
             if (user == null)
@@ -62,12 +63,12 @@ namespace App
             }
 
             // Wrong password
-            if (user.Password != this.passwordHash.Hash(txtPassword.Text))
+            if (user.Password != this.passwordHash.Hash(this.txtPassword.Text))
             {
                 return false;
             }
 
-            // Save user to app
+            // Save username to app properties settings
             Properties.Settings.Default.username = user.Username;
 
             return true;
