@@ -1,19 +1,10 @@
-﻿using App.Configs.Databases.Interfaces;
-using App.Models.Product;
-using App.Utils.PasswordHashes.Interfaces;
-using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace App
+﻿namespace App
 {
+    using App.Configs.Databases.Interfaces;
+    using App.Models.Product;
+    using App.Utils.PasswordHashes.Interfaces;
+    using MongoDB.Driver;
+
     public partial class Main : Form
     {
         private const string productCollectionName = "products";
@@ -33,7 +24,24 @@ namespace App
 
         private void Main_Load(object sender, EventArgs e)
         {
-            txtUsername.Text = Properties.Settings.Default.username;
+            this.txtUsername.Text = Properties.Settings.Default.username;
+
+            // Load all products
+            LoadProductItems();
+        }
+
+        private void LoadProductItems()
+        {
+            List<Product> products = this.productCollection.AsQueryable().ToList<Product>();
+            List<ProductItem> productItems = new List<ProductItem>();
+
+            foreach (var product in products)
+            {
+                ProductItem productItem = new ProductItem(product.OwnerUsername, product.Name, product.Price);
+                productItems.Add(productItem);
+            }
+
+            this.flowLayout.Controls.AddRange(productItems.ToArray());
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -52,13 +60,35 @@ namespace App
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
             // Save product to mongodb
-            SaveProduct();
+            Product product = SaveProduct();
+
+            // Add new product to view 
+            AddProductToView(product);
+
+            // Clear fields
+            ClearFields();
         }
 
-        private void SaveProduct()
+        private void ClearFields()
+        {
+            this.txtName.Text = "";
+            this.txtPrice.Text = "";
+        }
+
+        private void AddProductToView(Product product)
+        {
+            ProductItem productItem = new ProductItem(product.OwnerUsername, product.Name, product.Price);
+            this.flowLayout.Controls.Add(productItem);
+
+            MessageBox.Show("The product has been added successfully.");
+        }
+
+        private Product SaveProduct()
         {
             Product product = new Product(Properties.Settings.Default.username, txtName.Text, Double.Parse(txtPrice.Text));
             this.productCollection.InsertOne(product);
+
+            return product;
         }
     }
 }

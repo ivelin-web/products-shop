@@ -34,6 +34,8 @@
             this.txtUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.productTitleLabel = new System.Windows.Forms.Label();
+            this.flowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddProduct = new System.Windows.Forms.Button();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -98,6 +100,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.productTitleLabel);
+            this.panel2.Controls.Add(this.flowLayout);
             this.panel2.Controls.Add(this.btnAddProduct);
             this.panel2.Controls.Add(this.txtPrice);
             this.panel2.Controls.Add(this.panel4);
@@ -106,8 +110,30 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(218, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(682, 653);
+            this.panel2.Size = new System.Drawing.Size(849, 653);
             this.panel2.TabIndex = 1;
+            // 
+            // productTitleLabel
+            // 
+            this.productTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.productTitleLabel.ForeColor = System.Drawing.Color.Gray;
+            this.productTitleLabel.Location = new System.Drawing.Point(16, 130);
+            this.productTitleLabel.Name = "productTitleLabel";
+            this.productTitleLabel.Size = new System.Drawing.Size(788, 28);
+            this.productTitleLabel.TabIndex = 8;
+            this.productTitleLabel.Text = "All Products:";
+            this.productTitleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayout
+            // 
+            this.flowLayout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayout.AutoScroll = true;
+            this.flowLayout.Location = new System.Drawing.Point(16, 170);
+            this.flowLayout.Name = "flowLayout";
+            this.flowLayout.Size = new System.Drawing.Size(816, 403);
+            this.flowLayout.TabIndex = 7;
             // 
             // btnAddProduct
             // 
@@ -116,7 +142,7 @@
             this.btnAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAddProduct.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(172)))), ((int)(((byte)(238)))));
-            this.btnAddProduct.Location = new System.Drawing.Point(540, 55);
+            this.btnAddProduct.Location = new System.Drawing.Point(707, 55);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(125, 37);
             this.btnAddProduct.TabIndex = 4;
@@ -129,19 +155,19 @@
             this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtPrice.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.txtPrice.Location = new System.Drawing.Point(274, 55);
+            this.txtPrice.Location = new System.Drawing.Point(360, 55);
             this.txtPrice.Multiline = true;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.PlaceholderText = "Product price:";
-            this.txtPrice.Size = new System.Drawing.Size(202, 29);
+            this.txtPrice.Size = new System.Drawing.Size(259, 29);
             this.txtPrice.TabIndex = 3;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(172)))), ((int)(((byte)(238)))));
-            this.panel4.Location = new System.Drawing.Point(274, 91);
+            this.panel4.Location = new System.Drawing.Point(360, 91);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(202, 1);
+            this.panel4.Size = new System.Drawing.Size(259, 1);
             this.panel4.TabIndex = 6;
             // 
             // txtName
@@ -153,7 +179,7 @@
             this.txtName.Multiline = true;
             this.txtName.Name = "txtName";
             this.txtName.PlaceholderText = "Product name:";
-            this.txtName.Size = new System.Drawing.Size(202, 29);
+            this.txtName.Size = new System.Drawing.Size(259, 29);
             this.txtName.TabIndex = 2;
             // 
             // panel3
@@ -161,7 +187,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(172)))), ((int)(((byte)(238)))));
             this.panel3.Location = new System.Drawing.Point(16, 91);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(202, 1);
+            this.panel3.Size = new System.Drawing.Size(259, 1);
             this.panel3.TabIndex = 6;
             // 
             // Main
@@ -169,7 +195,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(900, 653);
+            this.ClientSize = new System.Drawing.Size(1067, 653);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -197,5 +223,7 @@
         private TextBox txtName;
         private Panel panel3;
         private Button btnAddProduct;
+        private FlowLayoutPanel flowLayout;
+        private Label productTitleLabel;
     }
 }
