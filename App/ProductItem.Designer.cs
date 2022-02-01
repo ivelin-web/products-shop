@@ -126,7 +126,7 @@
             this.priceLabel.Text = "Price:";
             this.priceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // product
+            // ProductItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -138,7 +138,8 @@
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.txtOwner);
             this.Controls.Add(this.panel1);
-            this.Name = "product";
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Name = "ProductItem";
             this.Size = new System.Drawing.Size(253, 314);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

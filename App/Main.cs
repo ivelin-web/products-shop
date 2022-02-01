@@ -59,6 +59,14 @@
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
+            // Validate fields
+            bool isValid = ValidateFields();
+
+            if (!isValid)
+            {
+                return;
+            }
+
             // Save product to mongodb
             Product product = SaveProduct();
 
@@ -67,6 +75,35 @@
 
             // Clear fields
             ClearFields();
+        }
+
+        private bool ValidateFields()
+        {
+            bool isValid = true;
+
+            // Validate name field
+            if (this.txtName.Text.Trim().Length == 0)
+            {
+                isValid = false;
+                this.txtNameWrong.Visible = true;
+            }
+            else
+            {
+                this.txtNameWrong.Visible = false;
+            }
+
+            // Validate price field
+            if (this.txtPrice.Text.Trim().Length == 0)
+            {
+                isValid = false;
+                this.txtPriceWrong.Visible = true;
+            }
+            else
+            {
+                this.txtPriceWrong.Visible = false;
+            }
+
+            return isValid;
         }
 
         private void ClearFields()
@@ -89,6 +126,29 @@
             this.productCollection.InsertOne(product);
 
             return product;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char symbol = e.KeyChar;
+            string currentPriceText = this.txtPrice.ToString();
+
+            // If symbol is backspace return
+            if (symbol == '\b')
+            {
+                return;
+            }
+
+            // Check whether symbol is valid
+            if ((symbol != ',' && !Char.IsDigit(symbol)) || (currentPriceText[currentPriceText.Length - 1] == ',' && symbol == ','))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

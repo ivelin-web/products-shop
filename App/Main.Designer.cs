@@ -30,10 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnExit = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtPriceWrong = new System.Windows.Forms.Label();
+            this.txtNameWrong = new System.Windows.Forms.Label();
             this.productTitleLabel = new System.Windows.Forms.Label();
             this.flowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddProduct = new System.Windows.Forms.Button();
@@ -49,6 +52,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(172)))), ((int)(((byte)(238)))));
+            this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.btnLogout);
             this.panel1.Controls.Add(this.txtUsername);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -58,6 +62,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(218, 653);
             this.panel1.TabIndex = 0;
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(172)))), ((int)(((byte)(238)))));
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Location = new System.Drawing.Point(0, 537);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(218, 58);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "EXIT";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnLogout
             // 
@@ -80,7 +101,7 @@
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.txtUsername.ForeColor = System.Drawing.Color.White;
-            this.txtUsername.Location = new System.Drawing.Point(49, 133);
+            this.txtUsername.Location = new System.Drawing.Point(49, 139);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(124, 25);
             this.txtUsername.TabIndex = 1;
@@ -100,6 +121,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.txtPriceWrong);
+            this.panel2.Controls.Add(this.txtNameWrong);
             this.panel2.Controls.Add(this.productTitleLabel);
             this.panel2.Controls.Add(this.flowLayout);
             this.panel2.Controls.Add(this.btnAddProduct);
@@ -112,6 +135,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(849, 653);
             this.panel2.TabIndex = 1;
+            // 
+            // txtPriceWrong
+            // 
+            this.txtPriceWrong.AutoSize = true;
+            this.txtPriceWrong.ForeColor = System.Drawing.Color.Firebrick;
+            this.txtPriceWrong.Location = new System.Drawing.Point(360, 95);
+            this.txtPriceWrong.Name = "txtPriceWrong";
+            this.txtPriceWrong.Size = new System.Drawing.Size(162, 20);
+            this.txtPriceWrong.TabIndex = 9;
+            this.txtPriceWrong.Text = "Enter a valid password!";
+            this.txtPriceWrong.Visible = false;
+            // 
+            // txtNameWrong
+            // 
+            this.txtNameWrong.AutoSize = true;
+            this.txtNameWrong.ForeColor = System.Drawing.Color.Firebrick;
+            this.txtNameWrong.Location = new System.Drawing.Point(16, 95);
+            this.txtNameWrong.Name = "txtNameWrong";
+            this.txtNameWrong.Size = new System.Drawing.Size(192, 20);
+            this.txtNameWrong.TabIndex = 9;
+            this.txtNameWrong.Text = "Enter a valid product name!";
+            this.txtNameWrong.Visible = false;
             // 
             // productTitleLabel
             // 
@@ -132,7 +177,7 @@
             this.flowLayout.AutoScroll = true;
             this.flowLayout.Location = new System.Drawing.Point(16, 170);
             this.flowLayout.Name = "flowLayout";
-            this.flowLayout.Size = new System.Drawing.Size(816, 403);
+            this.flowLayout.Size = new System.Drawing.Size(816, 471);
             this.flowLayout.TabIndex = 7;
             // 
             // btnAddProduct
@@ -161,6 +206,7 @@
             this.txtPrice.PlaceholderText = "Product price:";
             this.txtPrice.Size = new System.Drawing.Size(259, 29);
             this.txtPrice.TabIndex = 3;
+            this.txtPrice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrice_KeyPress);
             // 
             // panel4
             // 
@@ -225,5 +271,8 @@
         private Button btnAddProduct;
         private FlowLayoutPanel flowLayout;
         private Label productTitleLabel;
+        private Button btnExit;
+        private Label txtNameWrong;
+        private Label txtPriceWrong;
     }
 }
