@@ -142,9 +142,9 @@
             this.txtPriceWrong.ForeColor = System.Drawing.Color.Firebrick;
             this.txtPriceWrong.Location = new System.Drawing.Point(360, 95);
             this.txtPriceWrong.Name = "txtPriceWrong";
-            this.txtPriceWrong.Size = new System.Drawing.Size(162, 20);
+            this.txtPriceWrong.Size = new System.Drawing.Size(132, 20);
             this.txtPriceWrong.TabIndex = 9;
-            this.txtPriceWrong.Text = "Enter a valid password!";
+            this.txtPriceWrong.Text = "Enter a valid price!";
             this.txtPriceWrong.Visible = false;
             // 
             // txtNameWrong

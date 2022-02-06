@@ -19,7 +19,6 @@
         {
             ApplicationConfiguration.Initialize();
             Application.Run(new Login(this.mongo, this.passwordHash));
-            //Application.Run(new Main(this.mongo, this.passwordHash));
         }
     }
 }

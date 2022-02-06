@@ -63,7 +63,7 @@
             // txtOwner
             // 
             this.txtOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtOwner.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.txtOwner.ForeColor = System.Drawing.Color.DimGray;
             this.txtOwner.Location = new System.Drawing.Point(97, 191);
             this.txtOwner.Name = "txtOwner";
             this.txtOwner.Size = new System.Drawing.Size(153, 25);
@@ -74,7 +74,7 @@
             // ownerLabel
             // 
             this.ownerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ownerLabel.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.ownerLabel.ForeColor = System.Drawing.Color.DimGray;
             this.ownerLabel.Location = new System.Drawing.Point(18, 191);
             this.ownerLabel.Name = "ownerLabel";
             this.ownerLabel.Size = new System.Drawing.Size(73, 25);
@@ -85,7 +85,7 @@
             // txtProductName
             // 
             this.txtProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtProductName.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.txtProductName.ForeColor = System.Drawing.Color.DimGray;
             this.txtProductName.Location = new System.Drawing.Point(97, 227);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(153, 25);
@@ -96,7 +96,7 @@
             // productLabel
             // 
             this.productLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.productLabel.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.productLabel.ForeColor = System.Drawing.Color.DimGray;
             this.productLabel.Location = new System.Drawing.Point(18, 227);
             this.productLabel.Name = "productLabel";
             this.productLabel.Size = new System.Drawing.Size(73, 25);
@@ -107,7 +107,7 @@
             // txtPrice
             // 
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPrice.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.txtPrice.ForeColor = System.Drawing.Color.DimGray;
             this.txtPrice.Location = new System.Drawing.Point(97, 262);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(153, 25);
@@ -118,7 +118,7 @@
             // priceLabel
             // 
             this.priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.priceLabel.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.priceLabel.ForeColor = System.Drawing.Color.DimGray;
             this.priceLabel.Location = new System.Drawing.Point(18, 262);
             this.priceLabel.Name = "priceLabel";
             this.priceLabel.Size = new System.Drawing.Size(73, 25);
